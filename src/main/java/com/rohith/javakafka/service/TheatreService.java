@@ -21,6 +21,12 @@ public class TheatreService {
   }
 
   public Theatre save(Theatre theatre) {
+    long total = theatre.getRegular_seats_available()+theatre.getRecliner_seats_available()+theatre.getSofa_seats_available();
+    if (theatre.getTotal_seats_available() == null)
+      theatre.setTotal_seats_available(total);
+    else
+      if (theatre.getTotal_seats_available() != total)
+        return null; 
     return theatreRepository.save(theatre);
   }
 
