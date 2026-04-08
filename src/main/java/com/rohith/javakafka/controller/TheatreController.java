@@ -28,9 +28,16 @@ public class TheatreController {
 
   @PostMapping
   public ResponseEntity<Theatre> createTheatre(@RequestBody Theatre theatre) {
-    return ResponseEntity
+    Theatre savedTheatre = theatreService.save(theatre);
+    if (savedTheatre!=null && theatre.getMovieName()!=null) {
+      return ResponseEntity
             .status(HttpStatus.CREATED)
-            .body(theatreService.save(theatre));
+            .body(savedTheatre);
+    }
+    else
+      return ResponseEntity
+              .status(HttpStatus.NOT_ACCEPTABLE)
+              .body(null);
   }
 
   @GetMapping
