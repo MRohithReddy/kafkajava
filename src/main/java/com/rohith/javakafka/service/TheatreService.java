@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import com.rohith.javakafka.model.Theatre;
+import com.rohith.javakafka.model.TheatreByMovieNameResponse;
 import com.rohith.javakafka.repository.TheatreRepository;
 
 @Service
@@ -34,6 +36,10 @@ public class TheatreService {
 
   public Optional<Theatre> getTheatreByMoviename(String movie_name) {
     return theatreRepository.findByMovieName(movie_name);
+  }
+
+  public List<TheatreByMovieNameResponse> getScreenIdAndTotalSeatsAvailable(String movie_name) {
+    return theatreRepository.findAvailabilityByMovieName(movie_name);
   }
 
 }
