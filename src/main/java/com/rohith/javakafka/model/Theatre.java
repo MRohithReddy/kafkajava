@@ -23,7 +23,7 @@ public class Theatre {
   
   private String seat_type;
 
-  @Column(name = "movie_name", nullable = false, unique = true)
+  @Column(name = "movie_name")
   private String movieName;
   
 }
