@@ -20,35 +20,35 @@ public class TheatreService {
     this.theatreRepository = theatreRepository;
   }
 
-  public Theatre save(Theatre theatre) {
-    long total = theatre.getRegular_seats_available()+theatre.getRecliner_seats_available()+theatre.getSofa_seats_available();
-    if (theatre.getTotal_seats_available() == null)
-      theatre.setTotal_seats_available(total);
+  public TheatreResponse save(TheatreResponse theatreResponse) {
+    long total = theatreResponse.getRegular_seats_available()+theatreResponse.getRecliner_seats_available()+theatreResponse.getSofa_seats_available();
+    if (theatreResponse.getTotal_seats_available() == null)
+      theatreResponse.setTotal_seats_available(total);
     else
-      if (theatre.getTotal_seats_available() != total)
+      if (theatreResponse.getTotal_seats_available() != total)
         return null; 
-    if (theatreRepository.findByMovieName(theatre.getMovieName()).isPresent())
+    if (theatreRepository.findByMovieName(theatreResponse.getMovieName()).isPresent())
       return null;
-    long total = theatre.getRegular_seats_available()+theatre.getRecliner_seats_available()+theatre.getSofa_seats_available();
-    if (theatre.getTotal_seats_available() == null)
-      theatre.setTotal_seats_available(total);
+    long total = theatreResponse.getRegular_seats_available()+theatreResponse.getRecliner_seats_available()+theatreResponse.getSofa_seats_available();
+    if (theatreResponse.getTotal_seats_available() == null)
+      theatreResponse.setTotal_seats_available(total);
     else
-      if (theatre.getTotal_seats_available() != total)
+      if (theatreResponse.getTotal_seats_available() != total)
         return null; 
     return theatreRepository.save(theatre);
   }
 
-  public List<Theatre> getAllTheatres() {
-    List<Theatre> list = new ArrayList<>();
+  public List<TheatreResponse> getAllTheatres() {
+    List<TheatreResponse> list = new ArrayList<>();
     list = theatreRepository.findAll();
     return list;
   }
 
-  public Theatre getTheatreById(Long id) {
+  public TheatreResponse getTheatreById(Long id) {
     return theatreRepository.getReferenceById(id);
   }
 
-  public Optional<Theatre> getTheatreByMoviename(String movie_name) {
+  public Optional<TheatreResponse> getTheatreByMoviename(String movie_name) {
     return theatreRepository.findByMovieName(movie_name);
   }
 
