@@ -1,4 +1,4 @@
-package com.rohith.javakafka.model;
+package com.rohith.javakafka.model.Theatre;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

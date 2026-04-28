@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rohith.javakafka.model.Theatre;
-import com.rohith.javakafka.model.TheatreByMovieNameResponse;
 import com.rohith.javakafka.service.TheatreService;
+
+import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
 @RestController
 @RequestMapping("/theatre")
@@ -26,9 +26,9 @@ public class TheatreController {
   private TheatreService theatreService;
 
   @PostMapping
-  public ResponseEntity<Theatre> createTheatre(@RequestBody Theatre theatre) {
-    Theatre savedTheatre = theatreService.save(theatre);
-    if (savedTheatre!=null && theatre.getMovieName()!=null) {
+  public ResponseEntity<TheatreResponse> createTheatre(@RequestBody TheatreResponse theatreResponse) {
+    TheatreResponse savedTheatre = theatreService.save(theatreResponse);
+    if (savedTheatre!=null && savedTheatre.getMovieName()!=null) {
       return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(savedTheatre);
@@ -40,21 +40,21 @@ public class TheatreController {
   }
 
   @GetMapping
-  public ResponseEntity<List<Theatre>> getAllTheatres() {
+  public ResponseEntity<List<TheatreResponse>> getAllTheatres() {
     return ResponseEntity
             .status(HttpStatus.ACCEPTED)
             .body(theatreService.getAllTheatres());
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<Theatre> getTheatreById(@PathVariable Long id) {
+  public ResponseEntity<TheatreResponse> getTheatreById(@PathVariable Long id) {
     return ResponseEntity
             .status(HttpStatus.ACCEPTED)
             .body(theatreService.getTheatreById(id));
   }
 
   @GetMapping("/movieName")
-  public ResponseEntity<Optional<Theatre>> getTheatreByMovieName(@RequestParam String movie_name) {
+  public ResponseEntity<Optional<TheatreResponse>> getTheatreByMovieName(@RequestParam String movie_name) {
     return ResponseEntity
             .status(HttpStatus.ACCEPTED)
             .body(theatreService.getTheatreByMoviename(movie_name));
