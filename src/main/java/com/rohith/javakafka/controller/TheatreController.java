@@ -18,6 +18,8 @@ import com.rohith.javakafka.service.TheatreService;
 import com.rohith.javakafka.model.Theatre.TheatreByMovieNameResponse;
 import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
+import com.rohith.javakafka.model.Theatre.TheatreResponse;
+
 @RestController
 @RequestMapping("/theatre")
 public class TheatreController {
