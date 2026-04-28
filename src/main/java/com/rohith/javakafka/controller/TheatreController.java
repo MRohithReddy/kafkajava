@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rohith.javakafka.model.Theatre;
-import com.rohith.javakafka.model.TheatreByMovieNameResponse;
 import com.rohith.javakafka.service.TheatreService;
+import com.rohith.javakafka.model.Theatre.TheatreByMovieNameResponse;
+import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
 @RestController
 @RequestMapping("/theatre")
@@ -28,7 +28,7 @@ public class TheatreController {
   @PostMapping
   public ResponseEntity<TheatreResponse> createTheatre(@RequestBody TheatreResponse theatreResponse) {
     TheatreResponse savedTheatre = theatreService.save(theatreResponse);
-    if (savedTheatre!=null && theatre.getMovieName()!=null) {
+    if (savedTheatre!=null && savedTheatre.getMovieName()!=null) {
       return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(savedTheatre);

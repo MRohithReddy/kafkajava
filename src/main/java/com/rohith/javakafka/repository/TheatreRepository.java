@@ -8,8 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.rohith.javakafka.model.Theatre;
-import com.rohith.javakafka.model.TheatreByMovieNameResponse;
+import com.rohith.javakafka.model.Theatre.Theatre;
+import com.rohith.javakafka.model.Theatre.TheatreByMovieNameResponse;
+import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
 @Repository
 public interface TheatreRepository extends JpaRepository<Theatre, Long>{
