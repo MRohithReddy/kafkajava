@@ -1,4 +1,4 @@
-package com.rohith.javakafka.model;
+package com.rohith.javakafka.model.Theatre;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
