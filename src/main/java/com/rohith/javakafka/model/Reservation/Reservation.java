@@ -1,4 +1,4 @@
-package com.rohith.javakafka.model;
+package com.rohith.javakafka.model.Reservation;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

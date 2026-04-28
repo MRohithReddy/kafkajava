@@ -1,12 +1,9 @@
 package com.rohith.javakafka.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.jspecify.annotations.Nullable;
 import org.springframework.stereotype.Service;
 
 import com.rohith.javakafka.model.Theatre.Theatre;
@@ -86,8 +83,9 @@ public class TheatreService {
     );
 }
 
-  public Theatre getTheatreById(Long id) {
-    return theatreRepository.getReferenceById(id);
+  public TheatreResponse getTheatreById(Long id) {
+    Theatre theatre = theatreRepository.getReferenceById(id);
+    return mapToResponse(theatre);
   }
 
   public Optional<TheatreResponse> getTheatreByMoviename(String movie_name) {

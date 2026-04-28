@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rohith.javakafka.service.TheatreService;
+import com.rohith.javakafka.model.Theatre.TheatreByMovieNameResponse;
+import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
 import com.rohith.javakafka.model.Theatre.TheatreResponse;
 
